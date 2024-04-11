@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/gorra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <View
+        android:id="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="100dp"
+        android:background="#CCCCCC"
+        app:layout_constraintBottom_toTopOf="@+id/priceTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="164dp"
+        android:background="#CCCCCC"
+        app:layout_constraintBottom_toTopOf="@+id/sizeSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintVertical_bias="0.204" />
+
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Gorra Premium Tecmi Bca Logo Verde"
+        android:textAlignment="center"
+        android:textColor="#808080"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="$299.00"
+        android:textColor="#317665"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_home" />
+
+    <TextView
+        android:id="@+id/tallaTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:text="TALLAS"
+        android:textColor="#808080"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/sizeSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceTextView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Spinner
+        android:id="@+id/sizeSpinner"
+        android:layout_width="351dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/spinner_border"
+        android:entries="@array/talla_options"
+        android:prompt="@string/select_size"
+        android:textColor="@color/black"
+        style="@style/SpinnerTextStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/priceTextView" />
+
+
+    <Button
+        android:id="@+id/btnComprar"
+        android:layout_width="348dp"
+        android:layout_height="57dp"
+        android:backgroundTint="@color/colorGreenOscuro"
+        android:text="Comprar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btnCarrito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sizeSpinner"
+        app:layout_constraintVertical_bias="0.711" />
+
+    <Button
+        android:id="@+id/btnCarrito"
+        android:layout_width="348dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/colorGreen"
+        android:text="Añadir al carrito"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sizeSpinner"
+        app:layout_constraintVertical_bias="0.561" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:animation="@anim/scale_animation"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:onClick="onClickFab"
+        android:scaleType="center"
+        android:stateListAnimator="@null"
+        app:backgroundTint="#4ADF89"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCarrito"
+        app:layout_constraintVertical_bias="0.521"
+        app:maxImageSize="45dp"
+        app:srcCompat="@drawable/heart" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

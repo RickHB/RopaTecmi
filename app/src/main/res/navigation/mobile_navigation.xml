@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.ropatecmi.ui.home.HomeFragment"
+        android:label="@string/menu_categoria"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.ropatecmi.ui.gallery.GalleryFragment"
+        android:label="@string/menu_meGusta"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.ropatecmi.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_carrito"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_seguimiento"
+        android:name="com.example.ropatecmi.ui.seguimiento.SeguimientoFragment"
+        android:label="@string/menu_seguimiento"
+        tools:layout="@layout/fragment_seguimiento" />
+</navigation>

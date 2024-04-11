@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:textColor="@color/white"
+        android:title="Idioma"
+        app:showAsAction="never" />
+
+    <item
+        android:title="Moneda"
+        app:showAsAction="never"
+        android:textColor="@android:color/white"/>
+
+    <item
+        android:title="Ubicación"
+        app:showAsAction="never"
+        android:textColor="@android:color/white"/>
+
+    <item
+        android:title="Notificaciones"
+        app:showAsAction="never"
+        android:textColor="@android:color/white"/>
+
+    <item
+        android:title="Cerrar sesión"
+        app:showAsAction="never"
+        android:textColor="@android:color/white"/>
+
+</menu>
