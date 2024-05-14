@@ -1,5 +1,6 @@
 package com.example.ropatecmi;
 
+// Importaciones necesarias
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,32 +17,38 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+// Definición de la clase MainActivity
 public class MainActivity extends AppCompatActivity {
 
+    // Declaración de variables
     private ProgressBar progressBar;
     private Button btnLogin;
     private EditText etUsername;
     private EditText etPassword;
-    private List<Usuario> usuarios;
+    private List<Usuario> usuarios; // Lista para almacenar usuarios
 
+    // Método onCreate, llamado al iniciar la actividad
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); // Establecer el diseño de la actividad
 
+        // Asignación de vistas a las variables
         progressBar = findViewById(R.id.progressBar);
         btnLogin = findViewById(R.id.btn_login);
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
 
-        btnLogin.setEnabled(false);
-
+        // Inicialización de la lista de usuarios con algunos ejemplos
         usuarios = new ArrayList<>();
         usuarios.add(new Usuario("Hola", "Contraseña1"));
         usuarios.add(new Usuario("Hola2", "Contraseña2"));
         usuarios.add(new Usuario("h", "h"));
 
+        // Deshabilitar el botón de inicio de sesión al principio
+        btnLogin.setEnabled(false);
 
+        // Crear un TextWatcher para habilitar el botón cuando ambos campos estén llenos
         TextWatcher textWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -62,18 +69,21 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
+        // Asignar el TextWatcher a los campos de nombre de usuario y contraseña
         etUsername.addTextChangedListener(textWatcher);
         etPassword.addTextChangedListener(textWatcher);
 
+        // Configurar el OnClickListener para el botón de inicio de sesión
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Mostrar la animación
+                // Mostrar la animación de carga
                 progressBar.setVisibility(View.VISIBLE);
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.scale_animation);
                 btnLogin.startAnimation(anim);
-                btnLogin.setEnabled(false);
+                btnLogin.setEnabled(false); // Deshabilitar el botón durante la autenticación
 
+                // Simular una autenticación que tarda 2 segundos
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -81,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                         String password = etPassword.getText().toString();
 
                         boolean credencialesCorrectas = false;
+                        // Verificar las credenciales con los usuarios de ejemplo
                         for (Usuario usuario : usuarios) {
                             if (usuario.getUsername().equals(username) && usuario.getPassword().equals(password)) {
                                 credencialesCorrectas = true;
@@ -88,20 +99,19 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
 
+                        // Mostrar la siguiente actividad si las credenciales son correctas, o un mensaje de error
                         if (credencialesCorrectas) {
-                            // Si las credenciales son correctas, iniciar la nueva actividad
                             Intent intent = new Intent(MainActivity.this, Header.class);
                             startActivity(intent);
                         } else {
-                            // Si las credenciales no son correctas, mostrar un mensaje de error
                             Toast.makeText(MainActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
                         }
 
-                        // Ocultar la animación y habilitar el botón
+                        // Ocultar la animación de carga y habilitar el botón de inicio de sesión
                         progressBar.setVisibility(View.GONE);
                         btnLogin.setEnabled(true);
                     }
-                }, 2000);
+                }, 2000); // Retraso de 2 segundos para simular la autenticación
             }
         });
     }
